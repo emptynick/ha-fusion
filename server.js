@@ -30,11 +30,12 @@ function customRouter(req) {
 		if (source && forwardedProto && forwardedHost) {
 			target = `${forwardedProto}://${forwardedHost}`;
 		}
-
 		// exposed port
 		else if (host && EXPOSED_PORT && HASS_PORT) {
-			target = `http://${host.replace(EXPOSED_PORT, HASS_PORT)}`;
+			target = `https://${host.replace(EXPOSED_PORT, HASS_PORT)}`;
 		}
+
+		console.log(source, forwardedProto, forwardedHost, host, EXPOSED_PORT, HASS_PORT);
 	}
 
 	// target should be defined now
